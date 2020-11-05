@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2.1.</title>
+</head>
+<body>
+<h1>Пять событий с мышкой</h1>
+<p onclick="onMouseClick(this)" style="color: black">Щелкните по мне мышкой</p>
+<p onmousedown=thirdStringDown(this) onmouseup="thirdStringUp(this)">На этом тексте нажмите, подержите и отпустите левую кнопку мышки</p>
+<p onmouseover="fourthStringIn(this)" onmouseout="fourthStringOut(this)">Медленно проведите курсором мышки по этой надписи</p>
+
+<script>
+    function onMouseClick(element) {
+        if (element.style.color === 'black') {
+            element.style.fontSize = "48pt"
+            element.style.color = 'white'
+            element.style.backgroundColor = 'blue'
+        } else {
+            element.style.fontSize = '16px'
+            element.style.color = 'black'
+            element.style.backgroundColor = 'white'
+        }
+    }
+
+    function thirdStringDown(element) {
+        element.style.backgroundColor = 'green'
+    }
+    function thirdStringUp(element) {
+        element.style.backgroundColor = 'yellow'
+    }
+    function fourthStringIn(element) {
+        element.style.backgroundColor = 'red'
+    }
+    function fourthStringOut(element) {
+        element.style.backgroundColor = 'blue'
+        element.style.color = "white"
+    }
+
+
+
+</script>
+
+</body>
+</html>

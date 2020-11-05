@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p align="right" id="alfa" onmouseover=M_Over() onmouseout=M_Out() >
+    События onMouseOver и onMouseOut
+</p>
+<script>
+    function M_Over() {
+        document.all.alfa.align='center'
+        document.all.alfa.style.color = 'red'
+    }
+    function M_Out() {
+        document.all.alfa.align='left'
+        document.all.alfa.style.color = 'blue'
+    }
+</script>
+</body>
+</html>
