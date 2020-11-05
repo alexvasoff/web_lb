@@ -7,8 +7,10 @@
 <body>
 <h1>Пять событий с мышкой</h1>
 <p onclick="onMouseClick(this)" style="color: black">Щелкните по мне мышкой</p>
-<p onmousedown=thirdStringDown(this) onmouseup="thirdStringUp(this)">На этом тексте нажмите, подержите и отпустите левую кнопку мышки</p>
-<p onmouseover="fourthStringIn(this)" onmouseout="fourthStringOut(this)">Медленно проведите курсором мышки по этой надписи</p>
+<p onmousedown=thirdStringDown(this) onmouseup="thirdStringUp(this)">На этом тексте нажмите, подержите и отпустите левую
+    кнопку мышки</p>
+<p onmouseover="fourthStringIn(this)" onmouseout="fourthStringOut(this)">Медленно проведите курсором мышки по этой
+    надписи</p>
 
 <script>
     function onMouseClick(element) {
@@ -26,19 +28,19 @@
     function thirdStringDown(element) {
         element.style.backgroundColor = 'green'
     }
+
     function thirdStringUp(element) {
         element.style.backgroundColor = 'yellow'
     }
+
     function fourthStringIn(element) {
         element.style.backgroundColor = 'red'
     }
+
     function fourthStringOut(element) {
         element.style.backgroundColor = 'blue'
         element.style.color = "white"
     }
-
-
-
 </script>
 
 </body>

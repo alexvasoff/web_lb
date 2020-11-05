@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2.2</title>
+    <style>
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body onclick="change_view(event)">
+<p><img src="1.jpg" height="510" alt="Кiт" id="picture"></p>>
+<p id="description" style="color: black;"> Кот!</p>
+<script>
+    let picture_flag = true
+
+    function change_view(evt) {
+        let object = evt.target
+        switch (object.id) {
+            case "picture":
+                if (picture_flag) {
+                    document.getElementById("picture").src = "2.jpg"
+                    document.getElementById("description").textContent = "Диско-Кот!"
+                    picture_flag = false
+                } else {
+                    document.getElementById("picture").src = "1.jpg"
+                    document.getElementById("description").textContent = "Кот"
+                    picture_flag = true
+                }
+                break
+            case "description":
+                if (document.getElementById("description").style.color === "black") {
+                    document.getElementById("description").style.color = "white"
+                    document.getElementById("description").style.backgroundColor = "red"
+                } else {
+                    document.getElementById("description").style.color = "black"
+                    document.getElementById("description").style.backgroundColor = "yellow"
+                }
+
+
+        }
+    }
+</script>
+</body>
+</html>
