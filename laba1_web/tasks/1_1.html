@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 id=0 onclick=change_state('0') style="text-transform: uppercase; color: black">Доступ к свойствам и методам</h2>
+<p id='p_id' onclick=change_second_row() style="color: red; background-color: white">Коллекция all</p>
+<div id="2" onclick=change_state(this.id)>Метод getElementById()</div>
+
+<script>
+
+    let element_info = new Map([    // ассоциативный массив, описывающий цвета и флаг
+        ['color', 'white'],
+        ['backgroundColor', 'blue'],
+        ['alt_color', 'black'],
+        ['alt_backgroundColor', 'yellow'],
+        ['flag', true]])
+
+    function change_state(id) {
+        // почему ЭТО работает????????????????????????(если ИД должен начинать с буквы)?????????????????????????????????
+        if (element_info.get('flag')) { // достаем флаг
+            document.getElementById(id).style.color = element_info.get('color')
+            document.getElementById(id).style.backgroundColor = element_info.get('backgroundColor')
+            element_info.set('flag', !element_info.get('flag')) // меняем флаг (заколхозил )))))
+        } else {
+            document.getElementById(id).style.color = element_info.get('alt_color')
+            document.getElementById(id).style.backgroundColor = element_info.get('alt_backgroundColor')
+            element_info.set('flag', true)  // заколхозил ))))
+        }
+    }
+
+    function change_second_row() {
+        if(document.all.item('p_id').style.color==='red')
+        {
+            document.all.p_id.style.color = 'white'
+            document['all'].p_id.style.backgroundColor = 'green'
+        }
+        else {
+            p_obj = document.all.p_id.style
+            p_obj.color = 'red'
+            p_obj.backgroundColor = 'white'
+        }
+        // почему тогда не работает при id = 1 (ну это-то понятно, ид дб буквой)???? Но получается getElementById гений?
+    }
+</script>
+
+</body>
+</html>

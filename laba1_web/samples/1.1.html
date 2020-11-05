@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center;"><h1 id='zag'> ВАСЬКА</h1>
+    Вариант, совместимый с Mozilla<p>
+    <form name='form1'>
+        <input type=button name="change_size_button" onclick=bm() value='Увеличить'>
+    </form>
+    <p><img src="VaskaM.png" id='Vas' onclick=bm()>
+</div>
+<script>
+    flag = true
+
+    function bm() {
+        if (flag) {
+            document.images[0].src = 'VaskaB.png'
+            flag = false;
+            document.forms[0].change_size_button.value = "Уменьшить"
+            document.forms[0].change_size_button.style.background = 'red'
+            document["all"].change_size_button.style.color = "black";
+        } else {
+            document.getElementById("Vas").src = 'VaskaM.png';
+            document.forms[0].change_size_button.value = "Увеличить"
+            document.forms[0].change_size_button.style.background = 'green'
+            document["all"].change_size_button.style.color = 'white';
+            flag = true
+        }
+    }
+</script>
+
+</body>
+</html>
