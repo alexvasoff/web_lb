@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тригонометрия</title>
+</head>
+<body>
+<h1 style="text-transform: uppercase"> Тригонометрические функции</h1>
+<h3>Угол должен быть больше нуля и меньше 90 градусов</h3>
+<p>Угол в градусах
+    <input type="text" name="degrees" onchange="validate(this.value)">
+</p>
+<p>Функция.......
+    <select name="function">
+        <option value="sin">синус</option>
+        <option value="cos">косинус</option>
+        <option value="tan">тангенс</option>
+    </select>
+</p>
+<button onclick=validate(document.all.degrees.value)> Вычислить</button>
+
+<script>
+    function validate(value) {
+        if (0 <= value <= 90) {
+            alert("Введите правильный угол!")
+            document.all.degrees.value = ""
+            return null
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -7,15 +7,14 @@
 <!--Пример выбора и выводана экранэлемента списка Select -->
 <script>
     function select_() {
-        a = document.all.Kod.value //код цвета
-        b = document.all.Gor.selectedIndex
-//номервыбранного элемента// спискаselect
-        c = document.all.Gor.options[b].text//текст элементасписка
-        d = document.all.Gor.options[b].value//передаваемое из формы
+        color_text = document.all.Kod.value //код цвета
+        list_index = document.all.drop_list.selectedIndex  //номервыбранного элемента списка select
+        list_text = document.all.drop_list.options[list_index].text//текст элемента списка
+        list_value = document.all.drop_list.options[list_index].value//передаваемое из формы
 //значение<option value= red>
-        e = "<FONT size= 7 color=" + a + ">" + a + "</font>"//трансляция и
+        e = "<FONT size = 7 color=" + color_text + ">" + color_text + "</font>"//трансляция и
         document.all.alfa.innerHTML = e// вывод на экран HTML-строки
-        e = "<FONT size = 7 color= " + d + ">" + c + "</font>"
+        e = "<FONT size = 7 color= " + list_value + ">" + list_text + "</font>"
         document.all.beta.innerHTML = e
     }
 </script>
@@ -27,7 +26,7 @@
 <p>Введите код цвета
     <input type="text" name="Kod">
 <p>Выберите цвет
-    <select name="Gor">
+    <select name="drop_list">
         <option value="red">Красный</option>
         <option value="yellow">Жёлтый</option>
         <option value="maroon">Каштановый</option>
@@ -36,7 +35,7 @@
     </select>
 <p>
     <button onclick="select_()">Выполнить</button>
-<p><b id="alfa"></b>
-    <br> <b id="beta"></b>
+<p><b id="alfa"></b><br>
+<b id="beta"></b>
 </body>
 </html>
