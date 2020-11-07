@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>СКИПТ SELECT </title>
+</head>
+<body>
+<!--Пример выбора и выводана экранэлемента списка Select -->
+<script>
+    function select_() {
+        a = document.all.Kod.value //код цвета
+        b = document.all.Gor.selectedIndex
+//номервыбранного элемента// спискаselect
+        c = document.all.Gor.options[b].text//текст элементасписка
+        d = document.all.Gor.options[b].value//передаваемое из формы
+//значение<option value= red>
+        e = "<FONT size= 7 color=" + a + ">" + a + "</font>"//трансляция и
+        document.all.alfa.innerHTML = e// вывод на экран HTML-строки
+        e = "<FONT size = 7 color= " + d + ">" + c + "</font>"
+        document.all.beta.innerHTML = e
+    }
+</script>
+<h2>Подбор оттенков цвета</h2>
+В первое поле нужно ввести шестнадцатеричный код цвета.<br>
+Например,красный цвет имеет код FF0000.
+<br>Из списка во втором поле выбирается для сравнения
+<br> один из основных цветов(красный, зелёный,синий)
+<p>Введите код цвета
+    <input type="text" name="Kod">
+<p>Выберите цвет
+    <select name="Gor">
+        <option value="red">Красный</option>
+        <option value="yellow">Жёлтый</option>
+        <option value="maroon">Каштановый</option>
+        <option value=green">Зеленый</option>
+        <option value="blue">Синий
+    </select>
+<p>
+    <button onclick="select_()">Выполнить</button>
+<p><b id="alfa"></b>
+    <br> <b id="beta"></b>
+</body>
+</html>
