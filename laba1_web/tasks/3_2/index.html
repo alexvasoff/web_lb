@@ -11,7 +11,7 @@
     <input type="text" name="degrees" onchange="validate(this.value)">
 </p>
 <p>Функция.......
-    <select name="function">
+    <select id="trig_function" name="trig_function">
         <option value="sin">синус</option>
         <option value="cos">косинус</option>
         <option value="tan">тангенс</option>
@@ -21,13 +21,26 @@
 
 <script>
     function validate(value) {
-        if (0 <= value <= 90) {
-            alert("Введите правильный угол!")
+        value = parseInt(value)
+        if (value > 90 || value < 0) {
+            alert("Введите правильный угол! Сейчас угол = " + value)
             document.all.degrees.value = ""
             return null
         }
+        calculate(value)
+    }
 
+    function calculate(value) {
+        let selected_element = document.all.trig_function.selectedIndex
+        let element_value = document.all.trig_function.options[selected_element].value
+        let calculate = "Math." + element_value + "(" + value * 0.0175 + ")"
+        let formula = element_value + "(" + value + ")" + " = "
+
+        document.getElementById("test").innerHTML = formula + eval(calculate)
     }
 </script>
+<p><b id="res"></b><br>
+<p><b id="test"></b><br>
+
 </body>
 </html>
