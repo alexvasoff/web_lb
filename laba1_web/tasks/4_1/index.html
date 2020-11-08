@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2020 что ты делаешь???</title>
+</head>
+<body>
+<p> Выберите фотографию
+    <select onchange="getPicture(this)" on="getPicture(this)">
+    <option value="warrior1">Воин 1</option>
+    <option value="warrior2">Воин 2</option>
+    <option value="warrior3">Воин 3</option>
+    <option value="warrior4">Воин 4</option>
+    <option value="warrior5">Воин 5</option>
+    </select> </p>
+<img id="picture" src="images/1.jpg" width="800">
+<script>
+
+    let photo = []
+    photo["warrior1"] = new Image()
+    photo["warrior1"].src = "images/1.jpg"
+    photo["warrior2"] = new Image()
+    photo["warrior2"].src = "images/2.jpg"
+    photo["warrior3"] = new Image()
+    photo["warrior3"].src = "images/3.jpg"
+    photo["warrior4"] = new Image()
+    photo["warrior4"].src = "images/4.jpg"
+    photo["warrior5"] = new Image()
+    photo["warrior5"].src = "images/5.jpg"
+
+    function getPicture(list) {
+        let selected_photo = list.options[list.selectedIndex].value
+        document.getElementById("picture").src = photo[selected_photo].src
+        document.getElementById("picture").width = 800
+    }
+</script>
+</body>
+</html>
