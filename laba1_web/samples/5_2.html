@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ПЕРЕМЕЩЕНИЕ ИЗОБРАЖЕНИЯ МЫШКОЙ</title>
+</head>
+<body id="body1" style="font-size:12pt">
+<h2 align="center" style="color:#ff00ff">
+    Перетаскивание фотографии мышкой</h2>
+<p align="center">
+    Фотография начинает двигаться при попадании на неё курсора мышки<br>
+    При захвате и перемещении фотографии не нажимайте кнопки мышки.<br>
+    Для прекращения движения щёлкните левой кнопкой мышки</p>
+<p align=right> Примечание. Страница правильно отображается тольков браузере
+    <i>InternetExplorer 6.0</i>
+</p>
+<img id="IM1" src="VaskaB.png" STYLE="position:absolute;top:200px;left:10px">
+</body>
+<script> flag = false //запрет на перемещения
+// Функция запускается припересечении
+// курсором мышки границы изображения
+function IM1.onmouseover()
+{
+    flag = true
+}
+
+// Перетаскивание разрешено //
+function IM1.onmousemove()
+{
+    if (flag) { //пересчёткоординатизображения
+        document.all.IM1.style.top = event.clientY - 170
+        document.all.IM1.style.left = event.clientX - 120
+    }
+}//запрет на перемещения. Запускается при отпускании кнопки мышки
+function IM1.onclick()
+{
+    flag = false
+}
+</script>
+</html>
