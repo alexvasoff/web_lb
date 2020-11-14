@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Прямые линии</title>
+    <script>
+        line(100, 100, 400, 400, 3)
+        line(100, 400, 400, 100, 10)
+
+        function line(x1, y1, x2, y2, n) {
+            var xstr = ""
+            var xstr0 =
+                '<IMG SRC="point.png" WIDTH=' + n + ' HEIGHT=' + n +
+                ' STYLE="position:absolute;'
+            var k = (y2 - y1) / (x2 - x1)
+            x = x1
+            while (x <= x2) {
+                xstr += xstr0 + 'top:' + (k * (x - x1) + y1) + ';left:' + x + '">';
+                x++
+            }
+            document.write(xstr)
+        }
+    </script>
+</head>
+<body>
+</div>
+<div style="font-size:20pt;padding-left:50px">
+    <B>Рисование прямых линий</b></div>
+<div id="dd" STYLE="position:absolute;top:250px;left:100px;
+width:300px;height:1px;">
+    <hr noshade>
+</div>
+<div ID="kv" STYLE="position:absolute;top:100px;left:250px;
+width:1px;HEIGHT:300px;background-color:#ff0099"></div>
+</body>
+</html>
