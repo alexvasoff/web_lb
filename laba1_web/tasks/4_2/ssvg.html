@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Задайте длины полуосей</p>
+<p>Ось Х
+    <input type="'text" id="X_axis">
+</p>
+<p>Ось Х
+    <input type="'text" id="Y_axis">
+</p>
+<button onclick="update()">Построить</button>
+<div >
+    <svg viewBox="-500 -300 1500 1500">
+        <line x1 = 0 y1 = -500 x2 = 0  y2 = 500 stroke="black" />
+        <line x1 = -500 y1 = 0 x2 = 500  y2 = 0 stroke="black" />
+        <ellipse id="line" cx="0" cy="0" rx="10" ry="10" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)"/>
+    </svg>
+</div>
+
+<script>
+    function update() {
+        var new_x = document.getElementById("X_axis").value
+        var new_y = document.getElementById("Y_axis").value
+        document.getElementById('line').setAttribute("rx", new_x)
+        document.getElementById('line').setAttribute("ry", new_y)
+    }
+
+</script>
+
+</body>
+</html>
