@@ -5,17 +5,17 @@
 </head>
 <body onload="init()">
 <h2 align="center" style="color:#ff00ff">
-    Перетаскиваниеквадрата мышкой</h2>
+    Перетаскивание квадрата мышкой</h2>
 <h3 align="center">
     Установите курсор внутри красного квадрата, нажмите левую кнопку
     мышки и тащите квадрат.<br>
     Для освобождения квадрата от захвата отпустите кнопку мышки</h3>
-<div
-        id='kv' style="position:absolute;left:10px;top:10px;width:50px;height:50px;background-color:red">
-</div>
+<div id="lim" style="position:absolute; left:400px;top:400px;width:500px;height:500px;background-color:grey"></div>
+<div id='kv' style="position:absolute;left:600px;top:600px;width:50px;height:50px;background-color:red"></div>
+
 </body>
 <script>
-    flag = false; //Связывание событий с функциями
+    let flag = false; //Связывание событий с функциями
     function init() {
         document.all.kv.onmousemove = dragIt
         document.all.kv.onmouseup = osvobodi
@@ -25,8 +25,29 @@
     function dragIt(evt) {   //Параметр evt создаётся самим браузером
         sobytie = evt;
         if (flag) {
+
             document.all.kv.style.top = sobytie.clientY - 25;
             document.all.kv.style.left = sobytie.clientX - 25;
+            console.log('Y' + sobytie.clientY)
+            console.log('X' + sobytie.clientX)
+            // простите за запах, но я уже устал))))))))
+            if (evt.clientY > 900-25 || evt.clientY < 400+25 || evt.clientX > 900-25 || evt.clientX < 400+25) {
+                osvobodi()
+
+            }
+
+        }
+    }
+
+    function inSquare(evt) {
+        //     alert('qwe')
+        let grey_square = document.getElementById("lim")
+        if (evt.clientY > 900-25 || evt.clientY < 400-25 || evt.clientX > 900-25 || evt.clientX < 400-25) {
+            osvobodi()
+            alert('111')
+            return false
+        } else {
+            alert('zz')
         }
     }
 
