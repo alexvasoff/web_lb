@@ -7,7 +7,7 @@
 <body>
 <h1 style="text-transform: uppercase"> Тригонометрические функции</h1>
 <p>Функция.......
-    <select id="trig_function" name="trig_function">
+    <select id="trig_function" name="trig_function" onchange="document.getElementById('res_table').innerHTML = '<tr><th> Градусы</th><th>Радианы</th><th>' + this.options[this.selectedIndex].value +'</th></tr>'">
         <option value="sin">синус</option>
         <option value="cos">косинус</option>
         <option value="tan">тангенс</option>
@@ -72,11 +72,7 @@
 <p><b id="res"></b><br>
 <p><b id="test"></b><br>
 <table id="res_table">
-    <tr>
-        <th> Градусы</th>
-        <th>Радианы</th>
-        <th>ф/я</th>
-    </tr>
+    <tr><th> Градусы</th><th>Радианы</th><th>ф/я</th></tr>
 </table>
 </body>
 </html>
