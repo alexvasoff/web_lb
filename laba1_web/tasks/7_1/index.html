@@ -65,14 +65,14 @@
         let calculate = "Math." + element_value + "(" + value * 0.0175 + ")"
 
 
-        tr.innerHTML = '<td>' + value + '</td> <td>' + value * 0.175 + '</td> <td>' + eval(calculate) + '</td>'
+        tr.innerHTML = '<td>' + value + '</td> <td>' + (value * 0.175).toFixed(3) + '</td> <td>' + eval(calculate).toFixed(3) + '</td>'
         document.getElementById('res_table').appendChild(tr)
     }
 </script>
 <p><b id="res"></b><br>
 <p><b id="test"></b><br>
 <table id="res_table">
-    <tr><th> Градусы</th><th>Радианы</th><th>ф/я</th></tr>
+    <tr><th> Градусы</th><th>Радианы</th><th>sin</th></tr>
 </table>
 </body>
 </html>
