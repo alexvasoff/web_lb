@@ -7,7 +7,8 @@
 <body>
 <h1 style="text-transform: uppercase"> Тригонометрические функции</h1>
 <p>Функция.......
-    <select id="trig_function" name="trig_function" onchange="document.getElementById('res_table').innerHTML = '<tr><th> Градусы</th><th>Радианы</th><th>' + this.value +'</th></tr>'">
+    <select id="trig_function" name="trig_function"
+            onchange="document.getElementById('res_table').innerHTML = '<tr><th> Градусы</th><th>Радианы</th><th>' + this.value +'</th></tr>'">
         <option value="sin">синус</option>
         <option value="cos">косинус</option>
         <option value="tan">тангенс</option>
@@ -24,7 +25,6 @@
     <input type="text" id="step" onchange="validate(this.value)">
 </p>
 <button onclick=work(document.all.start.value)> Вычислить</button>
-<button onclick=newWindow()> Вычислить в окно</button>
 
 <script>
     function validate(value) {
@@ -52,11 +52,13 @@
         let start = parseInt(document.all.start.value)
         let stop = parseInt(document.all.stop.value)
         let step = parseInt(document.all.step.value)
+        let table = document.createElement('table')
         while (start <= stop) {
             cur_value = start
             addToTable(cur_value)
             start += step
         }
+        newWindow()
     }
 
     function addToTable(value) {
@@ -70,15 +72,18 @@
     }
 
     function newWindow() {
-        nw = window.open("","","width=650,height=400")
-        nw.document.write("work()")
+        nw = window.open("secon.html", "", "width=650,height=400")
+        nw.document.write(document.getElementById('res_table').outerHTML)
     }
+
+
 
 </script>
 <p><b id="res"></b><br>
 <p><b id="test"></b><br>
 <table id="res_table">
-    <tr><th> Градусы</th><th>Радианы</th><th>sin</th></tr>
+    <tr> <th> Градусы</th> <th>Радианы</th> <th>sin</th>
+    </tr>
 </table>
 </body>
 </html>
