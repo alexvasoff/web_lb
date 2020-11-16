@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <TITLE></TITLE>
+</HEAD>
+<BODY>
+<h1 align=center>График открывается в новом окне</h1>
+Зависимость y=f(x) <B onmouseover="gr('График 1','fx1.jpg')" style="color:blue;"> на графике 1</b> имеет линейный характер.
+<p> Изменение цены и объёмов продаж показаны
+    <B onmouseover="gr('График 2','fx2.jpg')" style="color:green">
+        на графике 2</b>. Объёмы продаж серого цвета.
+<p><font size=-1>    Примечание. Для просмотра графиков подведите курсор мышки к словам "на
+    графике"
+</font></p>
+<script>
+    function gr(txt,fil)
+    { grWin=window.open("","","width=650,height=400")
+        grWin.document.write("<H1 align=center>"+ txt+
+            "</h1><CENTER><IMG SRC='"+fil+"' width='500'></center>")
+    }
+</script>
+</BODY>
+</HTML>

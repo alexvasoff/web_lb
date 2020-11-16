@@ -1,0 +1,40 @@
+<HTML>
+<HEAD><TITLE>Internet Explorer и Mozilla</TITLE>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <SCRIPT>
+        functioncolorch(col,evt)
+        { e=brows(evt)
+            e.style.color=col;
+        }
+        function cl_b(evt)
+        { elem=brows(evt)
+            varx="";
+            x=elem.style.background
+            if(x.substring(0,6) == 'yellow')
+            { elem.style.background = '#AAAAFF'; }
+            else
+            { elem.style.background = 'yellow';}
+        }
+        function brows(evt)//Настройка на браузер
+        { evt=(evt) ? evt:window.event;
+            if(evt.target)
+            { elem =(evt.target.nodeType ==3) ?
+                evt.target.parentNode :evt.target;
+            }
+            else elem= evt.srcElement;
+            return elem;
+        }
+    </script>
+</HEAD>
+<BODY onclick=cl_b(event) style="height:600px">
+<P onmouseover="colorch('red',event)" onmouseout="colorch('green',event)"
+   ALIGN= 'CENTER'style='color:green'>
+    ТЕКСТ, МЕНЯЮЩИЙ СВОЙ ЦВЕТ
+</P><P>При наведении и снятии курсора заголовок меняет свой
+    цвет.<BR>
+    Щелчок по любому объекту меняет его цвет</p>
+<DIV style= "position:absolute;top:200px;left:300px;width:200px;
+height:100px;background-color:green;color:red">
+    <b>Контейнер</b>DIV</div>
+</BODY>
+</HTML>

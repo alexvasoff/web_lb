@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <SCRIPT>
+        function colorch(col, evt) {
+            evt.target.style.color = col;
+        }
+
+        function cl_b(evt) {
+            var elem = (evt.target.nodeType == 3) ? evt.target.parentNode : evt.target;
+            if (elem.style.background.substring(0, 6) == 'yellow') {
+                elem.style.background = '#AAAAFF';
+            } else {
+                elem.style.background = 'yellow';
+            }
+        }
+    </script>
+</HEAD>
+<BODY onclick=cl_b(event) style="height:600px">
+<P onmouseover="colorch('red',event)"
+   onmouseout="colorch('green',event)" ALIGN='CENTER'
+   style='color:green'>
+    ТЕКСТ, МЕНЯЮЩИЙ СВОЙ ЦВЕТ </P>
+<P>При наведении и снятии курсора заголовок меняет свойцвет.<BR>
+    Щелчок по любому объекту меняет его цвет</p>
+<DIV style="position :absolute;top:200px;left:300px;width:200px;height:100px; background-color:green;color:red">
+    <b>Контейнер</b>
+    DIV
+</div>
+</BODY>
+</HTML>
