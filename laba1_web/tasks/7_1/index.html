@@ -51,7 +51,7 @@
         let start = parseInt(document.all.start.value)
         let stop = parseInt(document.all.stop.value)
         let step = parseInt(document.all.step.value)
-        while (start < stop) {
+        while (start <= stop) {
             cur_value = start
             addToTable(cur_value)
             start += step
@@ -60,8 +60,12 @@
 
     function addToTable(value) {
         let tr = document.createElement("tr")
+        let selected_element = document.all.trig_function.selectedIndex
+        let element_value = document.all.trig_function.options[selected_element].value  // sin, cos,tan
+        let calculate = "Math." + element_value + "(" + value * 0.0175 + ")"
 
-        tr.innerHTML = '<td>гег </td> <td> гег</td> <td> гег </td>'
+
+        tr.innerHTML = '<td>' + value + '</td> <td>' + value * 0.175 + '</td> <td>' + eval(calculate) + '</td>'
         document.getElementById('res_table').appendChild(tr)
     }
 </script>
