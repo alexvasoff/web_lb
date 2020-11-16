@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="appName"></p>
+<p id="appCodeName"></p>
+<p id="appVersion"></p>
+<p id="userAgent"></p>
+<p id="language"></p>
+<p id="cookieEnabled"></p>
+
+<script>
+    let appName = window.navigator.appName
+    let appCodeName = window.navigator.appCodeName
+    let appVersion = window.navigator.appVersion
+    let userAgent = window.navigator.userAgent
+    let language = window.navigator.language
+    let cookieEnabled = window.navigator.cookieEnabled
+
+    document.getElementById("appName").innerHTML = "appName =" + appName
+    document.getElementById("appCodeName").innerHTML = "appCodeName =" + appCodeName
+    document.getElementById("appVersion").innerHTML = "appVersion =" + appVersion
+    document.getElementById("userAgent").innerHTML = "userAgent =" + userAgent
+    document.getElementById("language").innerHTML = "language =" + language
+    document.getElementById("cookieEnabled").innerHTML = "cookieEnabled =" + cookieEnabled
+
+</script>
+</body>
+</html>
