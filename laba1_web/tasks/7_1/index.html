@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тригонометрия</title>
+</head>
+<body>
+<h1 style="text-transform: uppercase"> Тригонометрические функции</h1>
+<p>Функция.......
+    <select id="trig_function" name="trig_function">
+        <option value="sin">синус</option>
+        <option value="cos">косинус</option>
+        <option value="tan">тангенс</option>
+    </select>
+</p>
+<h3>Введите диапазон углов в градусах</h3>
+<p>Начало
+    <input type="text" id="start" onchange="validate(this.value)">
+</p>
+<p>Конец
+    <input type="text" id="stop" onchange="validate(this.value)">
+</p>
+<p>Шаг
+    <input type="text" id="step" onchange="validate(this.value)">
+</p>
+<button onclick=calculate(document.all.start.value)> Вычислить</button>
+
+<script>
+    function validate(value) {
+        value = parseInt(value)
+        if (!value) {
+            alert("Введите правильный угол! Сейчас угол = " + value)
+            document.all.degrees.value = ""
+            return null
+        }
+
+    }
+
+    function calculate(value) {
+        validate(value)
+        work()
+        let selected_element = document.all.trig_function.selectedIndex
+        let element_value = document.all.trig_function.options[selected_element].value
+        let calculate = "Math." + element_value + "(" + value * 0.0175 + ")"
+        let formula = element_value + "(" + value + ")" + " = "
+
+        document.getElementById("test").innerHTML = formula + eval(calculate)
+    }
+
+    function work() {
+        let start = parseInt(document.all.start.value)
+        let stop = parseInt(document.all.stop.value)
+        let step = parseInt(document.all.step.value)
+        while (start < stop) {
+            cur_value = start
+            addToTable(cur_value)
+            start += step
+        }
+    }
+
+    function addToTable(value) {
+        let tr = document.createElement("tr")
+
+        tr.innerHTML = '<td>гег </td> <td> гег</td> <td> гег </td>'
+        document.getElementById('res_table').appendChild(tr)
+    }
+</script>
+<p><b id="res"></b><br>
+<p><b id="test"></b><br>
+<table id="res_table">
+    <tr>
+        <th> Градусы</th>
+        <th>Радианы</th>
+        <th>ф/я</th>
+    </tr>
+</table>
+</body>
+</html>
