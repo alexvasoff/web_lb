@@ -9,7 +9,7 @@
 
 <p>Изменение цены и количества</p>
 <p>Товар..........
-    <input type="text" id="product">
+    <select id="prod_list"></select>
 </p>
 <p>Цена...........
     <input type="text" id="price">
@@ -21,19 +21,20 @@
 </body>
 
 <script>
-    let sum = 0
-    products = [['Стол письменный', 12000, 5],['Стол кухонный', 8000, 10],['Сутл', 20, 1200],['Шкаф книжный', 1420,4]]
+
+    products = [['Стол письменный', 12000, 5],['Стол кухонный', 8000, 10],['Стул', 20, 1200],['Шкаф книжный', 1420,4]]
     update()
     function update() {
+        let sum = 0
         let table = document.getElementById('tbl')
         table.innerHTML = '<tr><th>Наименование товара</th><th>Цена за единицу</th><th>Количество</th><th>Стоимость</th></tr>'
         for (i in products) {
             product = products[i]
             let p_name = product[0]
+            createProdList(p_name)
             let price = product[1]
             let count = product[2]
             sum += price * count
-            alert(sum)
             new_row = document.createElement('tr')
             new_row.innerHTML = '<td>' + p_name + '</td> <td>' + price + '</td> <td>' + count + '</td> <td>' + price * count + '</td>'
             table.appendChild(new_row)
@@ -41,8 +42,16 @@
         total = document.createElement('tr')
         total.innerHTML = '<th colspan="3" align="left"> Итого </th> <th>' + sum + '</th>'
         table.appendChild(total)
-
-
     }
+
+    function createProdList(name) {
+        prod_list = document.getElementById('prod_list')
+
+        if (prod_list.options.length >= 4) return
+        let new_option = new Option(name)
+        prod_list.append(new_option)
+    }
+
+
 </script>
 </html>
