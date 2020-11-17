@@ -9,7 +9,8 @@
 
 <p>Изменение цены и количества</p>
 <p>Товар..........
-    <input type="text" id="product">
+    <select id="prod_list">
+    </select>
 </p>
 <p>Цена...........
     <input type="text" id="price">
@@ -24,6 +25,7 @@
     let sum = 0
     products = [['Стол письменный', 12000, 5],['Стол кухонный', 8000, 10],['Сутл', 20, 1200],['Шкаф книжный', 1420,4]]
     update()
+    createProdList()
     function update() {
         let table = document.getElementById('tbl')
         table.innerHTML = '<tr><th>Наименование товара</th><th>Цена за единицу</th><th>Количество</th><th>Стоимость</th></tr>'
@@ -33,16 +35,19 @@
             let price = product[1]
             let count = product[2]
             sum += price * count
-            alert(sum)
+            createProdList(p_name)
             new_row = document.createElement('tr')
             new_row.innerHTML = '<td>' + p_name + '</td> <td>' + price + '</td> <td>' + count + '</td> <td>' + price * count + '</td>'
             table.appendChild(new_row)
         }
         total = document.createElement('tr')
         total.innerHTML = '<th colspan="3" align="left"> Итого </th> <th>' + sum + '</th>'
-        table.appendChild(total)
-
-
     }
+
+    function createProdList(name) {
+        let new_option = new Option(name)
+        document.getElementById('prod_list').append(new_option)
+    }
+
 </script>
 </html>
