@@ -17,7 +17,7 @@
 <p>Количество
     <input type="text" id="count">
 </p>
-<button id="save_button" onclick="update()">Ввод</button>
+<button id="save_button" onclick="upload()">Ввод</button>
 </body>
 
 <script>
@@ -50,6 +50,11 @@
         if (prod_list.options.length >= 4) return
         let new_option = new Option(name)
         prod_list.append(new_option)
+    }
+
+    function upload() {
+        var select = document.getElementById('prod_list').selectedIndex
+        alert(select)
     }
 
 </script>
