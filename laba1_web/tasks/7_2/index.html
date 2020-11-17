@@ -56,9 +56,22 @@
 </body>
 
 <script>
+    products = [['Стол письменный', 12000, 5],['Стол кухонный', 8000, 10],['Сутл', 20, 1200],['Шкаф книжный', 14200,4]]
     function info() {
-        alert(document.all.tbl.rows[1].cells[1].textContent)
-        console.log(document.all.tbl.rows[1].cells[1].textContent)
+        let table = document.getElementById('tbl')
+        for (i in products) {
+            product = products[i]
+            let p_name = product[0]
+            let price = product[1]
+            let count = product[2]
+            new_row = document.createElement('tr')
+            new_row.innerHTML = '<th>' + p_name + '</th> <th>' + price + '</th> <th>' + count + '</th> <th>' + price * count + '</th>'
+            table.appendChild(new_row)
+        }
+        new_row.innerHTML = '<th colspan="3" align="left"> Итого </th> <th> 1234213</th>'
+        table.appendChild(new_row)
+
+
     }
 </script>
 </html>
