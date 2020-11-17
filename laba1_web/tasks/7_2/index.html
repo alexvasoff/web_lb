@@ -54,7 +54,16 @@
 
     function upload() {
         var select = document.getElementById('prod_list').selectedIndex
-        alert(select)
+        new_price = document.getElementById("price").value
+        new_count = document.getElementById("count").value
+        if(new_price.length != 0) {
+            products[select][1] = new_price
+            update()
+        }
+        if (new_count.length != 0 ) {
+            products[select][2] = new_count
+            update()
+        }
     }
 
 </script>
