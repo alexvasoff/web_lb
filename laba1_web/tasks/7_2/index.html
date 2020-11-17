@@ -5,42 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<table id="tbl" border="3">
-    <tr>
-        <th>Наименование товара</th>
-        <th>Цена за единицу</th>
-        <th>Количество</th>
-        <th>Стоимость</th>
-    </tr>
-    <tr>
-        <td>Стол письменный</td>
-        <td>12000</td>
-        <td>5</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Стол кухонный</td>
-        <td>8000</td>
-        <td>10</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Сутл</td>
-        <td>20</td>
-        <td>1200</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Шкаф книжный</td>
-        <td>14200</td>
-        <td>4</td>
-        <td></td>
-    </tr>
-    <tr>
-        <th colspan="3" align="left">ИТОГО</th>
-        <th></th>
-    </tr>
-</table>
+<table id="tbl" border="3"> </table>
 
 <p>Изменение цены и количества</p>
 <p>Товар..........
@@ -52,24 +17,30 @@
 <p>Количество
     <input type="text" id="count">
 </p>
-<button id="save_button" onclick="info()">Ввод</button>
+<button id="save_button" onclick="update()">Ввод</button>
 </body>
 
 <script>
-    products = [['Стол письменный', 12000, 5],['Стол кухонный', 8000, 10],['Сутл', 20, 1200],['Шкаф книжный', 14200,4]]
-    function info() {
+    let sum = 0
+    products = [['Стол письменный', 12000, 5],['Стол кухонный', 8000, 10],['Сутл', 20, 1200],['Шкаф книжный', 1420,4]]
+    update()
+    function update() {
         let table = document.getElementById('tbl')
+        table.innerHTML = '<tr><th>Наименование товара</th><th>Цена за единицу</th><th>Количество</th><th>Стоимость</th></tr>'
         for (i in products) {
             product = products[i]
             let p_name = product[0]
             let price = product[1]
             let count = product[2]
+            sum += price * count
+            alert(sum)
             new_row = document.createElement('tr')
-            new_row.innerHTML = '<th>' + p_name + '</th> <th>' + price + '</th> <th>' + count + '</th> <th>' + price * count + '</th>'
+            new_row.innerHTML = '<td>' + p_name + '</td> <td>' + price + '</td> <td>' + count + '</td> <td>' + price * count + '</td>'
             table.appendChild(new_row)
         }
-        new_row.innerHTML = '<th colspan="3" align="left"> Итого </th> <th> 1234213</th>'
-        table.appendChild(new_row)
+        total = document.createElement('tr')
+        total.innerHTML = '<th colspan="3" align="left"> Итого </th> <th>' + sum + '</th>'
+        table.appendChild(total)
 
 
     }
