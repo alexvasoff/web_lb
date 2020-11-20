@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "#ff0000");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "#000000");
+            });
+        });
+    </script>
+</head>
+<body>
+
+Name:
+<input type="text" name="fullname"><br>
+Email:
+<input type="text" name="email">
+</body>
+</html>
