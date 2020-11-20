@@ -296,18 +296,24 @@
                 $("tr").show()
             })
             let debug = false
+            let isHidden
             $("#test").click(function () {
                 if (!debug) {
-                $("[align='center']").css("background-color", "ff0000")
-                debug = true
-                }
-                else {
+                    $("[align='center']").css("background-color", "ff0000")
+                    debug = true
+                } else {
                     $("[align='center']").css("background-color", "ffffff")
                     debug = false
                 }
             })
             $("[align='center']").dblclick(function () {
-                $(this).toggle()
+                if (!isHidden) {
+                    $(this).css("color", "ffffff")
+                    isHidden = true
+                } else {
+                    $(this).css("color", "000000")
+                    isHidden = !isHidden
+                }
             })
             $("#show_center").click(function () {
                 $("[align='center']").show()
