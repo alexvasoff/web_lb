@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#button1').click(function () {
+                let random_number = randomInteger(1, 5)
+                let cur_div = 'div' + random_number
+                $("#" + cur_div).fadeIn(3000)
+            })
+            $('#button2').click(function () {
+                $('div').fadeOut("slow")
+            })
+        })
+
+        function randomInteger(min, max) {
+            // случайное число от min до (max+1)
+            let rand = min + Math.random() * (max + 1 - min);
+            return Math.floor(rand);
+        }
+    </script>
+</head>
+<body>
+<button id="button1">Показать случайный контейнер</button>
+<button id="button2">Скрыть все</button>
+<div id="div1" style="margin: 20px; display: none">Текст первого блока</div>
+<div id="div2" style="margin: 20px; display: none">Текст второго блока</div>
+<div id="div3" style="margin: 20px; display: none">Текст третьего блока</div>
+<div id="div4" style="margin: 20px; display: none">Текст четвертого блока</div>
+<div id="div5" style="margin: 20px; display: none">Текст пятого блока</div>
+</body>
+</html>
