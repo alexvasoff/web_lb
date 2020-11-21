@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('button').click(function () {
+                $('img:odd').slideUp('slow')
+            })
+
+        });
+    </script>
+
+    <style type="text/css">
+        img {
+            margin: 8px;
+            width: 120px;
+        }
+    </style>
+
+</head>
+<body>
+<button>Свернуть четные</button>
+<br>
+<img src="assets/Container.png"><br>
+<img src="assets/Draggable.png"><br>
+<img src="assets/Expanded.png"><br>
+<img src="assets/Flexible.png"><br>
+<img src="assets/ListTile.png"><br>
+<img src="assets/ListView.png">
+
+</body>
+</html>
